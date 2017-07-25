@@ -12,8 +12,8 @@ from twilio.rest import Client
 
 # In[34]:
 
-account_sid = "AC837978a8d6f70d438427814cf2ed60ce"
-auth_token = "f8c0f3263a16dac983a9fe76566c9638"
+account_sid = "XXXXXXXXX"
+auth_token = "XXXXXXXXX"
 client = Client(account_sid, auth_token)
 
 
@@ -39,8 +39,8 @@ print(prior_headline)
 
 # In[43]:
 
-message = client.api.account.messages.create(to="+41763610759",
-                                             from_="+41798073572",
+message = client.api.account.messages.create(to="XXXXXXXXX",
+                                             from_="XXXXXXXXX",
                                              body="NEW HEADLINE:"+ headline)
 
 
