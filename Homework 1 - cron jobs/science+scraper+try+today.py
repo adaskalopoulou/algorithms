@@ -39,3 +39,17 @@ datestring = time.strftime("%Y-%m-%d-%H-%M")
 
 filename = "science-data-" + datestring + ".csv"
 stories_df.to_csv(filename, index=False)
+
+
+response = requests.post(
+      'https://api.mailgun.net/v3/XXXXXX.mailgun.org',
+      auth=("api", "key-XXXXXX"),
+      files=[("attachment", open(filename))],
+      data={"from":"XXXX",
+            "to": "XXXX",
+            "subject": "Hello",
+            "text": "Testing some Mailgun awesomness!"})
+
+print(response.status_code)
+print(response.text)
+

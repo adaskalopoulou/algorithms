@@ -12,8 +12,8 @@ from twilio.rest import Client
 
 # In[34]:
 
-account_sid = "XXXXXXXXX"
-auth_token = "XXXXXXXXX"
+account_sid = "XXXXXXX"
+auth_token = "XXXXXX"
 client = Client(account_sid, auth_token)
 
 
@@ -37,15 +37,16 @@ prior_headline = prior.read().strip()
 print(prior_headline)
 
 
-# In[43]:
-
-message = client.api.account.messages.create(to="XXXXXXXXX",
-                                             from_="XXXXXXXXX",
+if headline != prior_headline:
+# https://programminghistorian.org/lessons/working-with-text-files
+  f = open("my_nyt.txt", "w")
+  f.write(headline)
+  f.close()
+  message = client.api.account.messages.create(to="XXXX",
+                                             from_="XXXX",
                                              body="NEW HEADLINE:"+ headline)
+  print(message.sid)
 
 
-# In[44]:
 
-if headline != last_headline:
-    print(message.sid)
 
